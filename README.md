@@ -16,26 +16,28 @@ docker rm typesense-server_2
 - 2. uv sync
 - 3. source venv/bin/activate
 
-# 1. Update your JSONL file with sort_order field (if needed)
+
+# Categorical Search Implementation
+## 1. Update your JSONL file with sort_order field (if needed)
 01_Creating_typesense_data.ipynb
 
-# 2. Create the collection using the schema
+## 2. Create the collection using the schema
 curl -X POST "http://localhost:8108/collections" \
   -H "X-TYPESENSE-API-KEY: xyz" \
   -H "Content-Type: application/json" \
   -d @kpi_schema.json
 
-# 3. Import the documents
+## 3. Import the documents
 curl -X POST "http://localhost:8108/collections/kpi_index/documents/import?action=create" \
   -H "X-TYPESENSE-API-KEY: xyz" \
   -H "Content-Type: application/json" \
   --data-binary @./typesense-data/data/kpi_synonyms_updated.jsonl
 
-# 4. Verify collection creation
+## 4. Verify collection creation
 curl -X GET "http://localhost:8108/collections/kpi_index" \
   -H "X-TYPESENSE-API-KEY: xyz" 
 
-# 5. Test a search query
+## 5. Test a search query
 curl -X GET "http://localhost:8108/collections/kpi_index/documents/search?q=revenue&query_by=kpi,synonym" \
   -H "X-TYPESENSE-API-KEY: xyz"
 

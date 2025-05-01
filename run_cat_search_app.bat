@@ -1,3 +1,0 @@
-@echo off
-echo Starting Categorical Search App...
-streamlit run cat_search_app.py
