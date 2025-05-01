@@ -17,7 +17,7 @@ docker rm typesense-server_2
 - 3. source venv/bin/activate
 
 
-# Categorical Search Implementation
+# KPI Search Implementation
 ## 1. Update your JSONL file with sort_order field (if needed)
 01_Creating_typesense_data.ipynb
 
