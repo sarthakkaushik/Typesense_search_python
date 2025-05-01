@@ -13,7 +13,8 @@ docker rm typesense-server_2
 
 # Setup UV environment
 - 1. uv venv
-- 2. source venv/bin/activate
+- 2. uv sync
+- 3. source venv/bin/activate
 
 # 1. Update your JSONL file with sort_order field (if needed)
 01_Creating_typesense_data.ipynb
