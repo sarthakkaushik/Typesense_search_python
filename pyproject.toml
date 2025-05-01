@@ -5,6 +5,15 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "ipykernel>=6.29.5",
-    "typesense>=1.0.3",
+    "pandas>=2.2.3",
+    "streamlit>=1.45.0",
 ]
+
+[options]
+packages = ["."]
+
+[dependencies]
+typesense = "^0.17.0"
+pandas = "^2.0.0"
+streamlit = "^1.31.0"
+requests = "^2.31.0"

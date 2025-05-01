@@ -38,3 +38,31 @@ curl -X GET "http://localhost:8108/collections/kpi_index" \
 # 5. Test a search query
 curl -X GET "http://localhost:8108/collections/kpi_index/documents/search?q=revenue&query_by=kpi,synonym" \
   -H "X-TYPESENSE-API-KEY: xyz"
+
+# Categorical Search Implementation
+
+Follow these steps to set up and use the categorical search functionality:
+
+## 1. Create the collection using the schema
+
+```bash
+curl -X POST "http://localhost:8108/collections" \
+  -H "X-TYPESENSE-API-KEY: xyz" \
+  -H "Content-Type: application/json" \
+  -d @cat_schema.json
+```
+
+## 2. Import the category documents
+
+First, run the notebook `03_Cat_Search_Implementation.ipynb` to prepare and import the categorical data.
+
+## 3. Test a category search query
+
+```bash
+curl -X GET "http://localhost:8108/collections/category_index/documents/search?q=IRON&query_by=Value" \
+  -H "X-TYPESENSE-API-KEY: xyz"
+```
+
+## 4. Using the CategoryMatcher class
+
+The `category_matcher.py` module provides a Python class for easier interaction with the Typesense categorical search. See the notebook for usage examples.
